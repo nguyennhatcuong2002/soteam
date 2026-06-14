@@ -21,6 +21,7 @@ from typing import List, Optional
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI, OpenAIError
 from pydantic import BaseModel, Field
 
@@ -110,6 +111,19 @@ app = FastAPI(
     description="AI assistant for the Sales Operations team. Produces Vietnamese "
     "daily/weekly task briefings from raw task-tracking data.",
     version="1.0.0",
+)
+
+# Allow browser-based chat clients (e.g. the single-file chat page) to call /chat
+# from any origin. CORS_ALLOW_ORIGINS can narrow this to specific origins (comma-separated).
+_allow_origins = [
+    o.strip() for o in os.getenv("CORS_ALLOW_ORIGINS", "*").split(",") if o.strip()
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=_allow_origins,
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
