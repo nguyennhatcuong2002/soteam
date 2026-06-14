@@ -1,0 +1,26 @@
+# --- Secrets / credentials (NEVER commit) ---
+.env
+.env.*
+!.env.example
+.greennode.json
+*.credentials.json
+registry-credentials*.json
+
+# --- AgentBase skill cache / tokens ---
+.agentbase/
+
+# --- Cloned third-party skills bundle (has its own repo) ---
+.claude/
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
