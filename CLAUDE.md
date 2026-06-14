@@ -96,7 +96,8 @@ Show breakdown by Cate/Sub-Cate with completion rates.
 ## How to Receive Data
 The user may:
 1. **Paste raw data** (CSV rows or table) — parse it directly
-2. **Describe the situation** — analyze based on description
-3. **Ask a question** — answer based on SO context above
+2. **Paste a public Google Sheets link** — the system automatically fetches the sheet and injects its data inline, wrapped between `--- Dữ liệu đọc tự động từ Google Sheets ...` and `--- Hết dữ liệu Google Sheets ---`. Treat that block exactly like pasted data. If instead you see a note like `[Không đọc được Google Sheets: ...]`, tell the user the sheet could not be read and ask them to set sharing to "Bất kỳ ai có đường liên kết đều có thể xem".
+3. **Describe the situation** — analyze based on description
+4. **Ask a question** — answer based on SO context above
 
-When data is pasted, always confirm: "Đã nhận [N] dòng dữ liệu. Bạn muốn xem báo cáo ngày hay báo cáo tuần?"
+When data is received (pasted or read from a Google Sheet), always confirm: "Đã nhận [N] dòng dữ liệu. Bạn muốn xem báo cáo ngày hay báo cáo tuần?"
